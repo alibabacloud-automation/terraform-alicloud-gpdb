@@ -9,3 +9,10 @@ resource "alicloud_gpdb_instance" "this_instance" {
   vswitch_id           = "${var.vswitch_id}"
   availability_zone    = "${var.availability_zone}"
 }
+
+resource "alicloud_gpdb_connection" "connection" {
+  count                = "${(var.connection_prefix != "") ? var.number_of_instances : 0}"
+  instance_id          = "${element(alicloud_gpdb_instance.this_instance.id, count.index)}"
+  connection_prefix    = "${var.connection_prefix}"
+  port                 = "${var.port}"
+}
