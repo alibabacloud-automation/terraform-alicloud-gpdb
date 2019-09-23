@@ -6,7 +6,7 @@ module "gpdb_instance" {
   instance_group_count = 10
   security_ip_list     = ["10.168.1.12", "100.69.7.112"]
   description          = "my-gpdb"
-  vswitch_id           = "${module.module_vpc.vswitch_ids}"
+  vswitch_id           = module.module_vpc.vswitch_ids
 }
 
 module "module_vpc" {
@@ -20,3 +20,4 @@ module "module_vpc" {
 data "alicloud_zones" "default" {
   available_resource_creation = "Gpdb"
 }
+

@@ -2,6 +2,11 @@
 # variables for alicloud_gpdb_instance
 ##############################################################
 
+variable "region" {
+  description = "The region used to launch this module resources."
+  default     = ""
+}
+
 variable "availability_zone" {
   description = "The available zone to launch ecs instance and other resources."
   default     = ""
@@ -37,7 +42,7 @@ variable "instance_group_count" {
 
 variable "security_ip_list" {
   description = "List of IP addresses allowed to access all databases of an instance. The list contains up to 1,000 IP addresses, separated by commas. Supported formats include 0.0.0.0/0, 10.23.12.24 (IP), and 10.23.12.24/24 (Classless Inter-Domain Routing (CIDR) mode. /24 represents the length of the prefix in an IP address. The range of the prefix length is [1,32])."
-  type        = "list"
+  type        = list(string)
   default     = []
 }
 
@@ -45,3 +50,4 @@ variable "number_of_instances" {
   description = "The number of launching instances one time."
   default     = 1
 }
+
