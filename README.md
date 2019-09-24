@@ -14,7 +14,7 @@ You can use this in your terraform template with the following steps.
 module "gpdb" {
   source = "terraform-alicloud-modules/gpdb/alicloud"
 
-  #variables for db instance
+  # variables for gpdb instance
   
   engine                       = "gpdb"
   engine_version               = "4.3"
@@ -23,6 +23,11 @@ module "gpdb" {
   description                  = "myGpdbInstance"
   availability_zone            = "cn-beijing-c"
   security_ips                 = ["11.193.54.0/24","101.37.74.0/24","10.137.42.0/24","121.43.18.0/24"]
+  
+  # variables for gpdb connection
+  instance_id                  = "gp-2ze9173c2h1kh0czy"
+  connection_prefix            = "my-adb4pg-prefix"
+  port                         = "3333"
   
   number_of_instances          = "2"
 }
@@ -48,12 +53,15 @@ module "gpdb" {
 | vswitch_id           | VSwitch ID. If you want to create VPC, this parameter cannot be left blank.  | string |     ""     |    no    |
 | number_of_instances  | The number of instances you want to create | string | 1 | no |
 | security_ips         | List of IP addresses allowed to access all databases of an instance. The list contains up to 1,000 IP addresses, separated by commas. Supported formats include 0.0.0.0/0, 10.23.12.24 (IP), and 10.23.12.24/24 (Classless Inter-Domain Routing (CIDR) mode. /24 represents the length of the prefix in an IP address. The range of the prefix length is [1,32]).    |   list    |    []      |      no     |
+| connection_prefix    | Prefix of an Internet connection string. It must be checked for uniqueness. It may consist of lowercase letters, numbers, and underlines, and must start with a letter and have no more than 30 characters. Default to + 'tf'. | string | "" | yes |
+| port                 | Internet connection port. Valid value: [3200-3999]. Default to 3306. | string | 3306 | no |
 
 ## Outputs
 
-| Name                          | Description                      |
-| ----------------------------- | -------------------------------- |
-| this_db_instance_ids          | List of instance ID created      |
+| Name                          | Description                             |
+| ----------------------------- | --------------------------------------- |
+| this_gpdb_instance_id         | List of instance ID created.            |
+| this_gpdb_connection_id       | List of instance ID of gpdb connection. |
 
 Authors
 ---------

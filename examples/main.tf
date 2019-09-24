@@ -7,6 +7,8 @@ module "gpdb_instance" {
   security_ip_list     = ["10.168.1.12", "100.69.7.112"]
   description          = "my-gpdb"
   vswitch_id           = module.module_vpc.vswitch_ids
+  connection_prefix    = "my-adb4pg-prefix"
+  port                 = 3306
 }
 
 module "module_vpc" {

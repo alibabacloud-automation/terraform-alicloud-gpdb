@@ -1,11 +1,11 @@
-##############################################################
-# variables for alicloud_gpdb_instance
-##############################################################
-
 variable "region" {
   description = "The region used to launch this module resources."
   default     = ""
 }
+
+##############################################################
+# variables for alicloud_gpdb_instance
+##############################################################
 
 variable "availability_zone" {
   description = "The available zone to launch ecs instance and other resources."
@@ -51,3 +51,17 @@ variable "number_of_instances" {
   default     = 1
 }
 
+
+##############################################################
+# variables for alicloud_gpdb_connection
+##############################################################
+
+variable "connection_prefix" {
+  description = "Prefix of an Internet connection string. It must be checked for uniqueness. It may consist of lowercase letters, numbers, and underlines, and must start with a letter and have no more than 30 characters. Default to + 'tf'."
+  default     = ""
+}
+
+variable "port" {
+  description = "Internet connection port. Valid value: [3200-3999]. Default to 3306."
+  default     = 3306
+}
