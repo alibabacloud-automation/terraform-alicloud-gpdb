@@ -65,7 +65,7 @@ module "gpdb" {
 
 Authors
 ---------
-Created and maintained by Yewei Ouyang (@ouyangyewei, ouyangyewei@gmail.com)
+Created and maintained by Alibaba Cloud Terraform Team(terraform@alibabacloud.com).
 
 Reference
 ---------
