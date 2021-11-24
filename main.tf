@@ -1,9 +1,3 @@
-provider "alicloud" {
-  version              = ">=1.56.0"
-  region               = var.region != "" ? var.region : null
-  configuration_source = "terraform-alicloud-modules/gpdb"
-}
-
 resource "alicloud_gpdb_instance" "this_instance" {
   count                = var.number_of_instances
   engine               = var.engine
