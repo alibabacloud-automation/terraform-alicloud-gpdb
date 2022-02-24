@@ -3,7 +3,6 @@ Terraform module which creates AnalyticDB for PostgreSQL on Alibaba Cloud
 
 ----------------------
 
-
 Usage
 -----
 You can use this in your terraform template with the following steps.
@@ -127,7 +126,7 @@ More details see [How to use provider in the module](https://www.terraform.io/do
 
 | Name | Version |
 |------|---------|
-| <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 0.12.0 |
+| <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 0.13.0 |
 | <a name="requirement_alicloud"></a> [alicloud](#requirement\_alicloud) | >= 1.56.0 |
 
 Authors
