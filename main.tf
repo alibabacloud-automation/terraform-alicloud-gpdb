@@ -11,8 +11,8 @@ resource "alicloud_gpdb_instance" "this_instance" {
 }
 
 resource "alicloud_gpdb_connection" "connection" {
-  count                = var.connection_prefix != "" ? var.number_of_instances : 0
-  instance_id          = alicloud_gpdb_instance.this_instance[count.index].id
-  connection_prefix    = var.connection_prefix
-  port                 = var.port
+  count             = var.connection_prefix != "" ? var.number_of_instances : 0
+  instance_id       = alicloud_gpdb_instance.this_instance[count.index].id
+  connection_prefix = var.connection_prefix
+  port              = var.port
 }
