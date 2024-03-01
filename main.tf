@@ -3,7 +3,13 @@ resource "alicloud_gpdb_instance" "this_instance" {
   engine               = var.engine
   engine_version       = var.engine_version
   description          = var.description
-  instance_class       = var.instance_class
+  db_instance_mode     = var.db_instance_mode
+  db_instance_class    = var.instance_class
+  db_instance_category = var.db_instance_category
+  instance_spec        = var.instance_spec
+  seg_node_num         = var.seg_node_num
+  seg_storage_type     = var.seg_storage_type
+  storage_size         = var.storage_size
   instance_group_count = var.instance_group_count
   security_ip_list     = var.security_ip_list
   vswitch_id           = var.vswitch_id

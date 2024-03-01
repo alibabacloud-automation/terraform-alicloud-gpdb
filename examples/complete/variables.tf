@@ -5,6 +5,24 @@ variable "description" {
   default     = "tf-testacc-description"
 }
 
+variable "instance_spec" {
+  description = "The specification of segment nodes."
+  type        = string
+  default     = "2C16G"
+}
+
+variable "seg_node_num" {
+  description = "Calculate the number of nodes."
+  type        = number
+  default     = 4
+}
+
+variable "storage_size" {
+  description = "The storage capacity."
+  type        = number
+  default     = 50
+}
+
 variable "security_ip_list" {
   description = "List of IP addresses allowed to access all databases of an instance. The list contains up to 1,000 IP addresses, separated by commas. Supported formats include 0.0.0.0/0, 10.23.12.24 (IP), and 10.23.12.24/24 (Classless Inter-Domain Routing (CIDR) mode. /24 represents the length of the prefix in an IP address. The range of the prefix length is [1,32])."
   type        = list(string)
