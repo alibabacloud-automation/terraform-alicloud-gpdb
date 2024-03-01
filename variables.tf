@@ -29,10 +29,46 @@ variable "description" {
   default     = ""
 }
 
+variable "db_instance_mode" {
+  description = "The db instance mode."
+  type        = string
+  default     = "StorageElastic"
+}
+
 variable "instance_class" {
   description = "DB Instance type, for example: gpdb.group.segsdx2. fall list is : https://www.alibabacloud.com/help/doc-detail/35406.htm"
   type        = string
   default     = "gpdb.group.segsdx1"
+}
+
+variable "db_instance_category" {
+  description = "The db instance category."
+  type        = string
+  default     = "Basic"
+}
+
+variable "instance_spec" {
+  description = "The specification of segment nodes."
+  type        = string
+  default     = "2C16G"
+}
+
+variable "seg_node_num" {
+  description = "Calculate the number of nodes."
+  type        = number
+  default     = 4
+}
+
+variable "seg_storage_type" {
+  description = "The seg storage type."
+  type        = string
+  default     = "cloud_essd"
+}
+
+variable "storage_size" {
+  description = "The storage capacity."
+  type        = number
+  default     = 50
 }
 
 variable "instance_group_count" {
