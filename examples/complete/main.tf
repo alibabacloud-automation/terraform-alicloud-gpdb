@@ -10,8 +10,8 @@ data "alicloud_vpcs" "default" {
 }
 
 data "alicloud_vswitches" "default" {
-  vpc_id  = data.alicloud_vpcs.default.ids.0
-  zone_id = data.alicloud_gpdb_zones.default.zones.0.id
+  vpc_id  = data.alicloud_vpcs.default.ids[0]
+  zone_id = data.alicloud_gpdb_zones.default.zones[0].id
 }
 
 module "gpdb_instance" {
@@ -31,8 +31,8 @@ module "gpdb_instance" {
   storage_size         = var.storage_size
   instance_group_count = "2"
   security_ip_list     = var.security_ip_list
-  vswitch_id           = data.alicloud_vswitches.default.vswitches.0.id
-  availability_zone    = data.alicloud_gpdb_zones.default.zones.0.id
+  vswitch_id           = data.alicloud_vswitches.default.vswitches[0].id
+  availability_zone    = data.alicloud_gpdb_zones.default.zones[0].id
 
   #alicloud_gpdb_connection
   connection_prefix = "tf-testacc"
